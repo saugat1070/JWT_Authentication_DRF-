@@ -17,6 +17,7 @@ def api_root(request,format=None):
 class StudentView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication]
+    
     def get(self,request,format=None):
         queary = Student.objects.all()
         serializer = StudentSerializer(queary,many=True)
